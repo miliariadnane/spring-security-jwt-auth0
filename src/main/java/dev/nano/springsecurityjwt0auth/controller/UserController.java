@@ -19,7 +19,7 @@ import static org.springframework.http.HttpStatus.OK;
 import static dev.nano.springsecurityjwt0auth.security.constant.SecurityConstant.JWT_TOKEN_HEADER;
 
 @RestController
-@RequestMapping("api/v1/users")
+@RequestMapping(path = {"/", "/api/v1/users"})
 @AllArgsConstructor
 public class UserController {
 

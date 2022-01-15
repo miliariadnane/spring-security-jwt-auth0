@@ -13,4 +13,5 @@ public interface UserService {
     User register(String firstName, String lastName, String username, String email);
 
     List<User> getUsers();
+
 }

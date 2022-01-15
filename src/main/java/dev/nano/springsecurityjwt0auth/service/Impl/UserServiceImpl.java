@@ -68,6 +68,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setEmail(email);
         user.setEnabled(true);
         user.setNotLocked(true);
+        user.setPassword(encodePassword(password));
         user.setRole(ROLE_USER.name());
         user.setAuthorities(ROLE_USER.getAuthorities());
         userRepository.save(user);
@@ -78,6 +79,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public List<User> getUsers() {
         return userRepository.findAll();
+    }
+
+    private String encodePassword(String password) {
+        return passwordEncoder.encode(password);
     }
 
     @Override
